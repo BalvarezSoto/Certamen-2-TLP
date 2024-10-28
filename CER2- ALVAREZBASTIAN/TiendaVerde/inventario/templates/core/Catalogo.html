@@ -1,0 +1,36 @@
+{% extends 'core/Base.html' %}
+
+{% block content %}
+<div class="object-fit-none" style="background-image: url('https://wallup.net/wp-content/uploads/2015/12/220487-nature-landscape-road-sun_rays-trees-green-sunlight.jpg'); background-size: cover; background-position: center; min-height: 100vh; padding-top: 80px;">
+    {% if request.user.is_authenticated %}
+        <div class="row row-cols-2 row-cols-l-3 row-cols-sm-3 row-cols-md-4 g-4 p-5">
+            {% for p in productos %}
+                <div class="col">
+                    <div class="card sombra shadow-lg">
+                        <img src="{{ p.imagen.url }}" class="card-img-top" alt="{{ p.nombre }}" style="height: 250px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ p.nombre | title }}</h5>
+                            <p class="card-text">{{ p.descripcion | capfirst }}</p>
+                            <h3>${{ p.precio }}</h3>
+                            <a href="{% url 'Añadir' p.id %}" class="btn btn-primary" onclick="event.stopPropagation();">Agregar al Carrito</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+
+
+
+<!-- Botón para abrir el carrito, estilizado -->
+<button class="btn btn-success position-fixed" style="bottom: 20px; right: 20px;" 
+        data-bs-toggle="offcanvas" data-bs-target="#mobile-cart-sidebar">
+    <i class="fas fa-shopping-cart"></i> Carrito
+</button>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="mobile-cart-sidebar">
+    {% include "core/Carro.html" %}
+</div>
+
+{% endblock %}
