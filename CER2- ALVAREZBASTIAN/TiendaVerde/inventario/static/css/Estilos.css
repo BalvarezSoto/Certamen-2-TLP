@@ -1,0 +1,44 @@
+.navbar{
+    background-color: #6EDA33;
+    font-style:italic;
+}
+
+.navbar-brand{
+    font-family:'Gill Sans', Gill Sans MT, 'Calibri', 'Trebuchet MS', sans-serif;
+    font-weight: 450;
+    font-size:x-large;
+}
+
+.nav-link{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight:100;
+    font-size: larger;
+    color: rgb(255, 255, 255);
+}
+
+.form-select{
+    padding: 10px;
+    margin-top: 5%;
+    margin-bottom: 2%;
+}   
+
+.selectbord{
+    width:85% ;
+
+}
+
+.bordes{
+    width:85% ;
+
+}
+
+.tamaño{
+    width: 65%;
+}
+
+
+.ajuste{
+
+    width: 60%;
+    background-color: #6EDA33;
+}

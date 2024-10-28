@@ -1,0 +1,45 @@
+{% extends 'core/Base.html' %}
+
+{% load static %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<style>
+  
+  main {
+    background-color: #2d6a4f;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+ 
+  h1 {
+    font-size: 2rem;
+    font-weight: 700; 
+    color: #1b4332; 
+    margin-bottom: 1.5rem;
+    text-align: center;
+    text-transform: uppercase;
+  }
+</style>
+
+<main class="form-signin w-100 m-auto d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+  <div class="card shadow-sm" style="width: 30rem;">
+    <div class="card-body">
+      <form action="" method="post">
+        {% csrf_token %}
+
+        <h1>Registrar</h1>
+
+        <div class="mb-3">
+          {{ form | crispy }}
+        </div>
+
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Confirmar</button>
+      </form>
+    </div>
+  </div>
+</main>
+{% endblock %}
